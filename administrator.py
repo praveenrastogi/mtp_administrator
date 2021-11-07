@@ -18,7 +18,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 class get_all_records(Resource):
     def post(self):
         try: 
-            dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+            dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
 
             table = dynamodb.Table('administrators')
             response = table.scan()
@@ -41,7 +41,7 @@ class new_record(Resource):
             print(args['id'],args['name'],args['email'])
             try:
                 
-                dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+                dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
 
                 table = dynamodb.Table('administrators')
                 response = table.put_item(
