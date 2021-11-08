@@ -44,7 +44,7 @@ class new_record(Resource):
                 dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
 
                 table = dynamodb.Table('administrators')
-                
+
                 response = table.put_item(
                 Item={
                         'id': args['id'],
@@ -55,7 +55,7 @@ class new_record(Resource):
                 return {'StatusCode':'200','Message': 'success'}
             except Exception as e:
                 print(args['id'],args['name'],args['email'])
-                return {'StatusCode':'1000','Message': str(e)}
+                return {'StatusCode':'1000','Message': str(e) + ", TABLE = " + table + "response = " + response}
 class health_record(Resource):
     def get(self):
 
