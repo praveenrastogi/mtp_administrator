@@ -55,7 +55,7 @@ class new_record(Resource):
                 return {'StatusCode':'200','Message': 'success'}
             except Exception as e:
                 print(args['id'],args['name'],args['email'])
-                return {'StatusCode':'1000','Message': str(table)}
+                return {'StatusCode':'1000','Message': str(e)}
 class health_record(Resource):
     def get(self):
 
